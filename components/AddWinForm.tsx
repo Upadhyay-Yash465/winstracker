@@ -55,13 +55,13 @@ export default function AddWinForm({ category }: { category: string }) {
         </div>
 
         <label htmlFor="description">A little about it</label>
-        <textarea id="description" name="description" placeholder="The story, in a few lines." />
+        <textarea id="description" name="description" placeholder="Talk about what happened." />
 
         <label htmlFor="feeling">How it made you feel</label>
-        <input id="feeling" name="feeling" placeholder="Proud, relieved, unstoppable…" />
+        <input id="feeling" name="feeling" placeholder="Describe what you felt in the moment." />
 
         <label htmlFor="proud">What made you proud of it</label>
-        <textarea id="proud" name="proud" placeholder="Why this one mattered." />
+        <textarea id="proud" name="proud" placeholder="What makes this an accomplishment?" />
 
         {state?.error && <p className="error">{state.error}</p>}
 
