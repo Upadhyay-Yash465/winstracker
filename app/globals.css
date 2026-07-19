@@ -1,0 +1,398 @@
+:root {
+  --bg: #050505;
+  --bg-raised: #0c0b09;
+  --ink: #e4dfd2;
+  --muted: #8f8a7c;
+  --faint: #55524a;
+  --line: #1d1c18;
+}
+
+/* next/font sets --font-sans / --font-serif on body, so alias them here, not :root */
+body {
+  --serif: var(--font-serif), Georgia, serif;
+  --sans: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: radial-gradient(ellipse 120% 60% at 50% -10%, #0b0a08 0%, var(--bg) 60%);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: #2e2b24;
+}
+
+input,
+textarea {
+  width: 100%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.95rem;
+  padding: 0.7rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--faint);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--faint);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 1.1rem 0 0.4rem;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  padding: 0.65rem 1.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn:hover {
+  border-color: var(--faint);
+  background: var(--bg-raised);
+}
+
+.btn-ghost {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+.btn-ghost:hover {
+  color: var(--ink);
+}
+
+.error {
+  color: #b0705f;
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+/* ---------- home ---------- */
+
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.home-top {
+  align-self: flex-end;
+}
+
+.clock {
+  font-size: clamp(4.5rem, 13vw, 8rem);
+  font-weight: 100;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-top: 3rem;
+}
+
+.clock-date {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 200;
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.greeting {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 200;
+  letter-spacing: 0.01em;
+  margin-top: 4.5rem;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 4rem;
+  width: 100%;
+  max-width: 30rem;
+}
+
+.category-tile {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.category-tile:hover {
+  border-color: var(--faint);
+  background: var(--bg-raised);
+}
+
+.category-tile .label {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.quote {
+  margin-top: auto;
+  padding-top: 5rem;
+  max-width: 38rem;
+}
+
+.quote-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+}
+
+.quote-refresh {
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.quote-refresh:hover {
+  color: var(--ink);
+  border-color: var(--faint);
+}
+
+.quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.quote cite {
+  display: block;
+  font-family: var(--sans);
+  font-style: normal;
+  font-size: 0.8rem;
+  color: var(--faint);
+  margin-top: 0.8rem;
+}
+
+/* ---------- login ---------- */
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 24rem;
+}
+
+.login-card h1 {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.login-card .sub {
+  text-align: center;
+  color: var(--faint);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-card .btn {
+  width: 100%;
+  margin-top: 1.6rem;
+}
+
+.login-switch {
+  text-align: center;
+  margin-top: 1.4rem;
+}
+
+/* ---------- category ---------- */
+
+.category-page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.category-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.category-head h1 {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.category-blurb {
+  color: var(--faint);
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.win {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-raised);
+  padding: 1.4rem 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.win-date {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.win h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 0.3rem;
+}
+
+.win .desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.6rem;
+}
+
+.win .detail {
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.win .detail .k {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+  display: block;
+  margin-bottom: 0.15rem;
+}
+
+.win .detail .v {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--muted);
+}
+
+.win-foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.6rem;
+}
+
+.empty {
+  color: var(--faint);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.add-win {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.add-win-form {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem 1.6rem 1.8rem;
+  margin-top: 1rem;
+}
+
+.add-win-form .row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.add-win-form input[type="date"] {
+  color-scheme: dark;
+  width: auto;
+}
+
+.form-actions {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-top: 1.6rem;
+}
