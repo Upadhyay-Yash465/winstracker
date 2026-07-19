@@ -1,4 +1,9 @@
 import { MongoClient, ObjectId, type Db } from "mongodb";
+import dns from "node:dns";
+
+// ponytail: some local networks block direct SRV DNS queries (mongodb+srv needs
+// them), so point at a public resolver in dev. Vercel resolves SRV natively.
+if (!process.env.VERCEL) dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 export type Win = {
   id: string;
