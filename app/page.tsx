@@ -21,6 +21,12 @@ export default async function Home() {
   return (
     <main className="home">
       <div className="home-top">
+        <Link href="/friends" className="btn-ghost">
+          Friends
+        </Link>
+        <Link href="/profile" className="btn-ghost">
+          Profile
+        </Link>
         <form action={logout}>
           <button className="btn-ghost" type="submit">
             Sign out

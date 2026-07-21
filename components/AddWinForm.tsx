@@ -63,6 +63,13 @@ export default function AddWinForm({ category }: { category: string }) {
         <label htmlFor="proud">What made you proud of it</label>
         <textarea id="proud" name="proud" placeholder="What makes this an accomplishment?" />
 
+        <label htmlFor="visibility">Who can see this</label>
+        <select id="visibility" name="visibility" defaultValue="private">
+          <option value="private">Private — only me</option>
+          <option value="friends">Friends</option>
+          <option value="public">Anyone on Wins</option>
+        </select>
+
         {state?.error && <p className="error">{state.error}</p>}
 
         <div className="form-actions">

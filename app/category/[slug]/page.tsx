@@ -6,6 +6,8 @@ import { deleteWin } from "@/lib/actions";
 import { CATEGORIES } from "@/lib/categories";
 import { listWins } from "@/lib/data";
 
+const VIS_LABEL = { private: "Private", friends: "Friends", public: "Public" } as const;
+
 function prettyDate(iso: string): string {
   const [y, m, d] = iso.split("-").map(Number);
   return new Date(y, m - 1, d).toLocaleDateString([], {
@@ -47,7 +49,12 @@ export default async function CategoryPage({
 
       {wins.map((w) => (
         <article key={w.id} className="win">
-          <div className="win-date">{prettyDate(w.date)}</div>
+          <div className="win-top">
+            <div className="win-date">{prettyDate(w.date)}</div>
+            <span className={`badge badge-${w.visibility}`}>
+              {VIS_LABEL[w.visibility]}
+            </span>
+          </div>
           <h2>{w.title}</h2>
           {w.description && <p className="desc">{w.description}</p>}
           {w.feeling && (

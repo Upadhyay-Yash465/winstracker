@@ -47,7 +47,8 @@ a {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   background: var(--bg-raised);
   border: 1px solid var(--line);
@@ -60,8 +61,14 @@ textarea {
   transition: border-color 0.2s ease;
 }
 
+select {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   border-color: var(--faint);
 }
 
@@ -131,6 +138,9 @@ button {
 
 .home-top {
   align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
 }
 
 .clock {
@@ -465,4 +475,81 @@ button {
     width: 2.75rem;
     height: 2.75rem;
   }
+}
+
+/* ---------- sharing / friends / profile ---------- */
+
+.saved {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.win-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.badge {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+  white-space: nowrap;
+}
+
+.badge-public {
+  color: #9db08f;
+  border-color: #2b3327;
+}
+
+.badge-friends {
+  color: #b0a27f;
+  border-color: #33301f;
+}
+
+.password-form {
+  margin-top: 1.5rem;
+}
+
+.friend-control {
+  margin: 0.5rem 0 2rem;
+}
+
+.friend-section {
+  margin-top: 2.5rem;
+}
+
+.friend-h {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.friend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0.2rem;
+}
+
+.friend-name {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.friend-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
