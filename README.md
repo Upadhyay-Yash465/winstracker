@@ -1,6 +1,6 @@
 # winstracker
 
-A wins tracker I made for my Girlfriend. Next.js + MongoDB, dark parchment aesthetic.
+A wins tracker I made for my friends and family. Next.js + MongoDB, dark parchment aesthetic.
 
 ## Run locally
 
